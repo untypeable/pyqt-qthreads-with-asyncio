@@ -26,5 +26,6 @@ thread.start()
 
 
 <p>You should only ever use asyncio with QThreads when 100% required.</p>
-<p>This example creates three threads - main stack, dummy thread (qthread), and asyncio</p>
-<p>An example of required use would be an application with ASYNC tasks, like websockets</p>
+<p>This example creates three threads - main stack, dummy thread (QThread), and asyncio</p>
+<p>An example of required use would be an application with async tasks, like websockets</p>
+<p>An ideal scenario is no QThreads, and Python to refine it's async implementations</p>
