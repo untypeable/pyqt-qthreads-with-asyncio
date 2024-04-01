@@ -17,15 +17,15 @@ class CustomThread(QThread):
 
   def run(self):
     asyncio.set_event_loop(self.loop)
-    asyncio.run(self.async_func())
-    self.loop.run_forever()
+    task = self.loop.create_task(self.async_func())
+    self.loop.run_until_complete(task)
 
 thread = CustomThread()
 thread.start()
 ```
 
 
-<p>You should only ever use asyncio with QThreads when 100% required.</p>
-<p>This example creates three threads - main stack, dummy thread (QThread), and asyncio</p>
-<p>An example of required use would be an application with async tasks, like websockets</p>
-<p>An ideal scenario is no QThreads, and Python to refine it's async implementations</p>
+<p>You should only ever use asyncio with QThreads when required</p>
+<p>This example creates three threads - main stack, QThread, and asyncio loop</p>
+<p>An example of use with async tasks is websockets / tcp communications</p>
+<p>An ideal scenario is no QThread dependencies, and Python to refine it's async implementations</p>
