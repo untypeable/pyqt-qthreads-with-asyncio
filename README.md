@@ -8,14 +8,14 @@ import asyncio
 asyncio.set_event_loop(asyncio.new_event_loop())
 
 class CustomThread(QThread):
-  def __init__(self):
+  def __init__(self): # Context: Main Stack
     self.loop = asyncio.get_event_loop()
     QThread.__init__(self)
 
-  async def async_func(self):
+  async def async_func(self): # Context: Event Loop
     print("ASYNC HELLO :)")
 
-  def run(self):
+  def run(self): # Context: QThread
     asyncio.set_event_loop(self.loop)
     task = self.loop.create_task(self.async_func())
     self.loop.run_until_complete(task)
