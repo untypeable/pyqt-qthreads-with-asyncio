@@ -25,7 +25,7 @@ thread.start()
 ```
 
 
-<span>Only use asyncio AND QThreads when absolutely required.</span><br />
+<span>Only use asyncio and QThreads when absolutely required.</span><br />
 <span>The example creates three threads: Main Stack, QThread, and Event Loop.</span><br />
 <span>There is no need for asyncio.run if we create and manage our own event loop.</span><br />
 <span>Setting the event loop in main stack will allow QThreads to await eachother.</span><br />
