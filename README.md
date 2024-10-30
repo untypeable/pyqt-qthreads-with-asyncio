@@ -1,7 +1,7 @@
 # Qt QThreads with Python asyncio
 A demonstration of implementing async methods to Qt QThreads
 
-```
+```py
 from PyQt6.QtCore import QThread
 import asyncio
 
